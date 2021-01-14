@@ -2,8 +2,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class PlayerController : MonoBehaviour {
+public class EnemyFollow : MonoBehaviour {
     public List<AxleInfo> axleInfos; 
+    public Transform target;
     public float maxMotorTorque;
     public float maxSteeringAngle;
 
@@ -27,9 +28,25 @@ public class PlayerController : MonoBehaviour {
 
     public void FixedUpdate()
     {
+        Vector3 targetDir = target.position - transform.position;
+        float a = Vector3.SignedAngle(transform.forward,
+                                      targetDir,
+                                      Vector3.up);
+
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-     
+
+        if (Mathf.Abs(a) <= 5) {
+            motor = maxMotorTorque * 1;
+            steering = 0;
+        } else {
+            motor = maxMotorTorque * .5f;
+            if (a < 0)
+                steering = maxSteeringAngle * -1;
+            else
+                steering = maxSteeringAngle * 1;
+        }
+
         foreach (AxleInfo axleInfo in axleInfos) {
             if (axleInfo.steering) {
                 axleInfo.leftWheel.steerAngle = steering;
