@@ -1,13 +1,13 @@
+// https://docs.unity3d.com/2020.2/Documentation/Manual/WheelColliderTutorial.html
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-// https://docs.unity3d.com/2020.2/Documentation/Manual/WheelColliderTutorial.html
 public class PlayerController : MonoBehaviour {
     public List<AxleInfo> axleInfos; 
     public float maxMotorTorque;
     public float maxSteeringAngle;
-     
+
     // finds the corresponding visual wheel
     // correctly applies the transform
     public void ApplyLocalPositionToVisuals(WheelCollider collider)
@@ -44,12 +44,4 @@ public class PlayerController : MonoBehaviour {
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
-}
-
-[System.Serializable]
-public class AxleInfo {
-    public WheelCollider leftWheel;
-    public WheelCollider rightWheel;
-    public bool motor;
-    public bool steering;
 }
