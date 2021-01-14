@@ -8,29 +8,17 @@ public class PlayerController : MonoBehaviour {
     public float brakeTorque;
     public float maxSteeringAngle;
 
-    // finds the corresponding visual wheel
-    // correctly applies the transform
-    public void ApplyLocalPositionToVisuals(WheelCollider collider)
+
+    private float motor;
+    private float steering;
+    private void Update()
     {
-        if (collider.transform.childCount == 0) {
-            return;
-        }
-     
-        Transform visualWheel = collider.transform.GetChild(0);
-     
-        Vector3 position;
-        Quaternion rotation;
-        collider.GetWorldPose(out position, out rotation);
-     
-        visualWheel.transform.position = position;
-        visualWheel.transform.rotation = rotation;
+        motor = maxMotorTorque * Input.GetAxis("Vertical");
+        steering = maxSteeringAngle * Input.GetAxis("Horizontal");
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
-        float motor = maxMotorTorque * Input.GetAxis("Vertical");
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-     
         foreach (AxleInfo axleInfo in axleInfos) {
             if (axleInfo.steering) {
                 axleInfo.leftWheel.steerAngle = steering;
@@ -57,5 +45,23 @@ public class PlayerController : MonoBehaviour {
             ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
+    }
+
+    // finds the corresponding visual wheel
+    // correctly applies the transform
+    public void ApplyLocalPositionToVisuals(WheelCollider collider)
+    {
+        if (collider.transform.childCount == 0) {
+            return;
+        }
+     
+        Transform visualWheel = collider.transform.GetChild(0);
+     
+        Vector3 position;
+        Quaternion rotation;
+        collider.GetWorldPose(out position, out rotation);
+     
+        visualWheel.transform.position = position;
+        visualWheel.transform.rotation = rotation;
     }
 }
