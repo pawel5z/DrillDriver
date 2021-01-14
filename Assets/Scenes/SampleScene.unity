@@ -292,6 +292,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2313646811878127301, guid: f534ae31b74a41d4f9b6393181c11359, type: 3}
+      propertyPath: steeringSens
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2338230573486892379, guid: f534ae31b74a41d4f9b6393181c11359, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -339,10 +343,6 @@ PrefabInstance:
     - target: {fileID: 8262157983133200140, guid: f534ae31b74a41d4f9b6393181c11359, type: 3}
       propertyPath: m_Name
       value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8448564001007461343, guid: f534ae31b74a41d4f9b6393181c11359, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f534ae31b74a41d4f9b6393181c11359, type: 3}
@@ -835,8 +835,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4300101583041791325, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 2222860016922306616, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2222860016922306616, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662961574772119193, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662961574772119193, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022619567458427485, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5022619567458427485, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319770606093889987, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319770606093889987, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7372084204647987255, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
@@ -886,10 +914,6 @@ PrefabInstance:
     - target: {fileID: 7855745782488490637, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7855745782488490637, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31331bde3f6f99d429ea111478067b70, type: 3}

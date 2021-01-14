@@ -3,10 +3,14 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class EnemyFollow : MonoBehaviour {
+    public Rigidbody hammer;
+    /* idx 0 - front wheels, idx 1 - rear wheels */
     public List<AxleInfo> axleInfos; 
     public Transform target;
     public float maxMotorTorque;
     public float maxSteeringAngle;
+    public float steeringSens = 3f;
+    public float steeringAngleMargin = 5f;
 
     // finds the corresponding visual wheel
     // correctly applies the transform
@@ -29,23 +33,27 @@ public class EnemyFollow : MonoBehaviour {
     public void FixedUpdate()
     {
         Vector3 targetDir = target.position - transform.position;
-        float a = Vector3.SignedAngle(transform.forward,
-                                      targetDir,
-                                      Vector3.up);
+        float diffAngle = Vector3.SignedAngle(targetDir,
+                                              transform.forward,
+                                              Vector3.up);
 
-        float motor = maxMotorTorque * Input.GetAxis("Vertical");
-        float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        float motor;
+        float steering = axleInfos[0].leftWheel.steerAngle;
+        float targetSteering;
 
-        if (Mathf.Abs(a) <= 5) {
-            motor = maxMotorTorque * 1;
-            steering = 0;
-        } else {
-            motor = maxMotorTorque * .5f;
-            if (a < 0)
-                steering = maxSteeringAngle * -1;
-            else
-                steering = maxSteeringAngle * 1;
+        if (Mathf.Abs(diffAngle) <= steeringAngleMargin)
+        {
+            motor = maxMotorTorque;
+            targetSteering = 0f;
         }
+        else
+        {
+            motor = maxMotorTorque * .5f;
+            targetSteering = Mathf.Clamp(diffAngle, -maxSteeringAngle, maxSteeringAngle);
+        }
+        steering = Mathf.MoveTowards(steering,
+                                     targetSteering,
+                                     steeringSens * Time.fixedDeltaTime);
 
         foreach (AxleInfo axleInfo in axleInfos) {
             if (axleInfo.steering) {

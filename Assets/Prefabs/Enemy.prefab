@@ -46,7 +46,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 1
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -223,7 +223,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 1
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -397,7 +397,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 1
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -790,7 +790,7 @@ GameObject:
   - component: {fileID: 2338230573486892379}
   - component: {fileID: 1343164314448360702}
   - component: {fileID: 5555799146339954758}
-  - component: {fileID: 8448564001007461343}
+  - component: {fileID: 2313646811878127301}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -844,9 +844,9 @@ HingeJoint:
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_UseSpring: 0
+  m_UseSpring: 1
   m_Spring:
-    spring: 0
+    spring: 400
     damper: 0
     targetPosition: 0
   m_UseMotor: 0
@@ -867,7 +867,7 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &8448564001007461343
+--- !u!114 &2313646811878127301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -876,9 +876,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8262157983133200140}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d5b1fcde3ccdf24ca06561b93d43208, type: 3}
+  m_Script: {fileID: 11500000, guid: b32fc805c503988469863fb6c140eb79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hammer: {fileID: 7537031794361815131}
   axleInfos:
   - leftWheel: {fileID: 4404404852972496993}
     rightWheel: {fileID: 5865352934254358119}
@@ -890,7 +891,9 @@ MonoBehaviour:
     steering: 0
   target: {fileID: 7372084204647987255, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
   maxMotorTorque: 800
-  maxSteeringAngle: 30
+  maxSteeringAngle: 45
+  steeringSens: 3
+  steeringAngleMargin: 5
 --- !u!1 &8559646162006497215
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,7 +940,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 1
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 0
+  m_ForceAppPointDistance: 5
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
