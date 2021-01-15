@@ -42,26 +42,8 @@ public class PlayerController : MonoBehaviour {
                 else
                     axleInfo.rightWheel.brakeTorque = brakeTorque;
             }
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
-    }
-
-    // finds the corresponding visual wheel
-    // correctly applies the transform
-    public void ApplyLocalPositionToVisuals(WheelCollider collider)
-    {
-        if (collider.transform.childCount == 0) {
-            return;
-        }
-     
-        Transform visualWheel = collider.transform.GetChild(0);
-     
-        Vector3 position;
-        Quaternion rotation;
-        collider.GetWorldPose(out position, out rotation);
-     
-        visualWheel.transform.position = position;
-        visualWheel.transform.rotation = rotation;
     }
 }

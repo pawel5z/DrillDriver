@@ -9,48 +9,25 @@ public class EnemyFollow : MonoBehaviour {
     public Transform target;
     public float maxMotorTorque;
     public float maxSteeringAngle;
-    public float steeringSens = 3f;
+    public float steeringSens = 45f;
     public float steeringAngleMargin = 5f;
 
-    // finds the corresponding visual wheel
-    // correctly applies the transform
-    public void ApplyLocalPositionToVisuals(WheelCollider collider)
-    {
-        if (collider.transform.childCount == 0) {
-            return;
-        }
-     
-        Transform visualWheel = collider.transform.GetChild(0);
-     
-        Vector3 position;
-        Quaternion rotation;
-        collider.GetWorldPose(out position, out rotation);
-     
-        visualWheel.transform.position = position;
-        visualWheel.transform.rotation = rotation;
-    }
 
-    public void FixedUpdate()
+
+    private void FixedUpdate()
     {
         Vector3 targetDir = target.position - transform.position;
-        float diffAngle = Vector3.SignedAngle(targetDir,
-                                              transform.forward,
+        float diffAngle = Vector3.SignedAngle(transform.forward,
+                                              targetDir,
                                               Vector3.up);
-
-        float motor;
+        float motor = maxMotorTorque;
         float steering = axleInfos[0].leftWheel.steerAngle;
-        float targetSteering;
 
+        float targetSteering;
         if (Mathf.Abs(diffAngle) <= steeringAngleMargin)
-        {
-            motor = maxMotorTorque;
             targetSteering = 0f;
-        }
         else
-        {
-            motor = maxMotorTorque * .5f;
             targetSteering = Mathf.Clamp(diffAngle, -maxSteeringAngle, maxSteeringAngle);
-        }
         steering = Mathf.MoveTowards(steering,
                                      targetSteering,
                                      steeringSens * Time.fixedDeltaTime);
@@ -64,8 +41,8 @@ public class EnemyFollow : MonoBehaviour {
                 axleInfo.leftWheel.motorTorque = motor;
                 axleInfo.rightWheel.motorTorque = motor;
             }
-            ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
 }

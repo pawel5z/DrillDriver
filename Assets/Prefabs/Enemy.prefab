@@ -949,7 +949,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8262157983133200140}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b32fc805c503988469863fb6c140eb79, type: 3}
   m_Name: 
@@ -964,10 +964,10 @@ MonoBehaviour:
     rightWheel: {fileID: 3038029892390721576}
     motor: 1
     steering: 0
-  target: {fileID: 7372084204647987255, guid: 31331bde3f6f99d429ea111478067b70, type: 3}
+  target: {fileID: 0}
   maxMotorTorque: 800
   maxSteeringAngle: 45
-  steeringSens: 3
+  steeringSens: 45
   steeringAngleMargin: 5
 --- !u!1 &8559646162006497215
 GameObject:
