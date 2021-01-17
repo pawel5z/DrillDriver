@@ -11,7 +11,7 @@ public class ExplodeAndDestroy : MonoBehaviour
         if (explodeEffect != null)
             Instantiate(explodeEffect, transform.position, Quaternion.Euler(Vector3.up));
         if (wreckage != null)
-            Instantiate(wreckage, transform.position, Quaternion.Euler(Vector3.up));
+            Instantiate(wreckage, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

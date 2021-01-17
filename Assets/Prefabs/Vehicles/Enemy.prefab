@@ -395,7 +395,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!65 &1383651516444564689
@@ -425,6 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 7537031794361815131}
   maxAngVel: 100
+  force2Destroy: 11000
 --- !u!1 &5421437522862107948
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,6 +866,7 @@ GameObject:
   - component: {fileID: 1343164314448360702}
   - component: {fileID: 5555799146339954758}
   - component: {fileID: 2313646811878127301}
+  - component: {fileID: 1339080518870883404}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -903,7 +905,7 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!59 &5555799146339954758
@@ -969,6 +971,20 @@ MonoBehaviour:
   maxSteeringAngle: 45
   steeringSens: 45
   steeringAngleMargin: 5
+--- !u!114 &1339080518870883404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8262157983133200140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0254afda62205464e8715267bc2f30a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeEffect: {fileID: 0}
+  wreckage: {fileID: 2338230573486892379, guid: 14d14e8376c2bf045a27f5951bb8cee1, type: 3}
 --- !u!1 &8559646162006497215
 GameObject:
   m_ObjectHideFlags: 0

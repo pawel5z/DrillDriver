@@ -16,6 +16,8 @@ public class EnemyFollow : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (target == null) return;
+
         Vector3 targetDir = target.position - transform.position;
         float diffAngle = Vector3.SignedAngle(transform.forward,
                                               targetDir,

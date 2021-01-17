@@ -665,6 +665,7 @@ GameObject:
   - component: {fileID: 172633295314507874}
   - component: {fileID: 1912930177745224250}
   - component: {fileID: 1640754286328062458}
+  - component: {fileID: 4975782123900540027}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -767,6 +768,20 @@ MonoBehaviour:
   maxSteeringAngle: 40
   rb: {fileID: 172633295314507874}
   jumpForceMult: 5
+--- !u!114 &4975782123900540027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855745782488490637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0254afda62205464e8715267bc2f30a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explodeEffect: {fileID: 0}
+  wreckage: {fileID: 7372084204647987255, guid: bc61ba8a3f010054e98ebe9bc79af2e3, type: 3}
 --- !u!1 &7888453487560853705
 GameObject:
   m_ObjectHideFlags: 0
