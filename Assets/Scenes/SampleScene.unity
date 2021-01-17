@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 370513802}
   - component: {fileID: 370513801}
   - component: {fileID: 370513805}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -771,7 +771,7 @@ GameObject:
   - component: {fileID: 428678256}
   - component: {fileID: 428678255}
   - component: {fileID: 428678254}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp SE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4931,7 +4931,7 @@ GameObject:
   - component: {fileID: 777520479}
   - component: {fileID: 777520478}
   - component: {fileID: 777520477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp NE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8506,7 +8506,7 @@ GameObject:
   - component: {fileID: 877297556}
   - component: {fileID: 877297555}
   - component: {fileID: 877297554}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp NW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12383,7 +12383,7 @@ GameObject:
   - component: {fileID: 1028807050}
   - component: {fileID: 1028807049}
   - component: {fileID: 1028807048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp West
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15281,7 +15281,7 @@ GameObject:
   - component: {fileID: 1066156566}
   - component: {fileID: 1066156565}
   - component: {fileID: 1066156564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp North
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18798,7 +18798,7 @@ GameObject:
   - component: {fileID: 1458853935}
   - component: {fileID: 1458853934}
   - component: {fileID: 1458853933}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp South
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21631,7 +21631,7 @@ GameObject:
   - component: {fileID: 1590457729}
   - component: {fileID: 1590457728}
   - component: {fileID: 1590457727}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp SW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25517,7 +25517,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1975047196}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Arena
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25560,7 +25560,7 @@ GameObject:
   - component: {fileID: 2088851772}
   - component: {fileID: 2088851771}
   - component: {fileID: 2088851770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ramp East
   m_TagString: Untagged
   m_Icon: {fileID: 0}
