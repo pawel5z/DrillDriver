@@ -765,6 +765,8 @@ MonoBehaviour:
   maxMotorTorque: 3000
   brakeTorque: 10000
   maxSteeringAngle: 40
+  rb: {fileID: 172633295314507874}
+  jumpForceMult: 10
 --- !u!1 &7888453487560853705
 GameObject:
   m_ObjectHideFlags: 0

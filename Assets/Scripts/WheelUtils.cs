@@ -6,6 +6,8 @@ public class AxleInfo {
     public WheelCollider rightWheel;
     public bool motor;
     public bool steering;
+
+    public bool isGrounded => leftWheel.isGrounded && rightWheel.isGrounded;
 }
 
 public class WheelUtils

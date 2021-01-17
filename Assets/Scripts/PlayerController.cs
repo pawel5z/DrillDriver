@@ -8,18 +8,25 @@ public class PlayerController : MonoBehaviour {
     public float maxMotorTorque;
     public float brakeTorque;
     public float maxSteeringAngle;
+    public Rigidbody rb;
+    public float jumpForceMult;
 
 
     private float verticalInput;
     private float steering;
+    private bool jump;
     private void Update()
     {
         verticalInput = Input.GetAxis("Vertical");
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        jump = Input.GetButtonDown("Jump");
     }
 
     private void FixedUpdate()
     {
+        if (jump && axleInfos.Exists(x => x.isGrounded))
+            rb.AddRelativeForce(transform.up * jumpForceMult, ForceMode.VelocityChange);
+
         foreach (AxleInfo axleInfo in axleInfos) {
             if (axleInfo.steering) {
                 axleInfo.leftWheel.steerAngle = steering;
