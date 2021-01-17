@@ -19,12 +19,12 @@ public class PlayerController : MonoBehaviour {
     {
         verticalInput = Input.GetAxis("Vertical");
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-        jump = Input.GetButtonDown("Jump");
+        jump = Input.GetButton("Jump");
     }
 
     private void FixedUpdate()
     {
-        if (jump && axleInfos.Exists(x => x.isGrounded))
+        if (jump && IsHalfGrounded())
             rb.AddRelativeForce(transform.up * jumpForceMult, ForceMode.VelocityChange);
 
         foreach (AxleInfo axleInfo in axleInfos) {
@@ -54,4 +54,17 @@ public class PlayerController : MonoBehaviour {
             WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
+
+    private bool IsHalfGrounded() {
+        WheelCollider[] wheelCols = GetComponentsInChildren<WheelCollider>();
+        int groundedCnt = 0;
+        foreach (WheelCollider wc in wheelCols)
+            if (wc.isGrounded)
+                groundedCnt++;
+        if (groundedCnt >= 2)
+            return true;
+        return false;
+    }
+    
+    private bool isGrounded => axleInfos.TrueForAll(x => x.isGrounded);
 }
