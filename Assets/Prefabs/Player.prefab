@@ -46,7 +46,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 2
+  m_ForceAppPointDistance: 3
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -413,7 +413,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 2
+  m_ForceAppPointDistance: 3
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -556,7 +556,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 2
+  m_ForceAppPointDistance: 3
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -811,7 +811,7 @@ WheelCollider:
     damper: 4500
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
-  m_ForceAppPointDistance: 2
+  m_ForceAppPointDistance: 3
   m_Mass: 20
   m_WheelDampingRate: 0.25
   m_ForwardFriction:
@@ -954,7 +954,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2375517900368355681}
-  vehicleRb: {fileID: 172633295314507874}
-  minSpeedToSpin: 20
+  minSpeedToSpin: 15
   maxAngVel: 100
   angVelMult: 50

@@ -1,6 +1,7 @@
 // https://docs.unity3d.com/2020.2/Documentation/Manual/WheelColliderTutorial.html
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class PlayerController : MonoBehaviour {
     public List<AxleInfo> axleInfos; 
@@ -9,11 +10,11 @@ public class PlayerController : MonoBehaviour {
     public float maxSteeringAngle;
 
 
-    private float motor;
+    private float verticalInput;
     private float steering;
     private void Update()
     {
-        motor = maxMotorTorque * Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxis("Vertical");
         steering = maxSteeringAngle * Input.GetAxis("Horizontal");
     }
 
@@ -26,21 +27,21 @@ public class PlayerController : MonoBehaviour {
             }
             if (axleInfo.motor) {
                 float lRpm = axleInfo.leftWheel.rpm;
-                if (Mathf.Sign(lRpm) == Mathf.Sign(motor) || lRpm == 0)
+                if (lRpm * verticalInput != 0 && Math.Sign(lRpm) != Math.Sign(verticalInput))
+                    axleInfo.leftWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                else
                 {
                     axleInfo.leftWheel.brakeTorque = 0;
-                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.leftWheel.motorTorque = verticalInput * maxMotorTorque;
                 }
-                else
-                    axleInfo.leftWheel.brakeTorque = brakeTorque;
                 float rRpm = axleInfo.rightWheel.rpm;
-                if (Mathf.Sign(rRpm) == Mathf.Sign(motor) || rRpm == 0)
+                if (rRpm * verticalInput != 0 && Math.Sign(rRpm) != Math.Sign(verticalInput))
+                    axleInfo.rightWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                else
                 {
                     axleInfo.rightWheel.brakeTorque = 0;
-                    axleInfo.rightWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = verticalInput * maxMotorTorque;
                 }
-                else
-                    axleInfo.rightWheel.brakeTorque = brakeTorque;
             }
             WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
             WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
