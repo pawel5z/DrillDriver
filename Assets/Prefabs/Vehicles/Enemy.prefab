@@ -59,6 +59,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hammer: {fileID: 7537031794361815131}
   forceMult: 10000
+  hitFX: {fileID: 100004, guid: e0d26447650c1464c87ec41e1c324529, type: 3}
 --- !u!1 &1714027162224865992
 GameObject:
   m_ObjectHideFlags: 0
@@ -968,8 +969,8 @@ MonoBehaviour:
     steering: 0
   target: {fileID: 0}
   maxMotorTorque: 800
-  maxSteeringAngle: 45
-  steeringSens: 45
+  maxSteeringAngle: 30
+  steeringSens: 30
   steeringAngleMargin: 5
 --- !u!114 &1339080518870883404
 MonoBehaviour:

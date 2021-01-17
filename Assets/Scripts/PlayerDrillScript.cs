@@ -5,6 +5,7 @@ public class PlayerDrillScript : MonoBehaviour
     public Rigidbody rb;
     public float minSpeedToSpin;
     public float maxAngVel = 100;
+    public GameObject drillFX;
 
     private void Start()
     {
@@ -15,8 +16,11 @@ public class PlayerDrillScript : MonoBehaviour
     {
         if (rb.velocity.magnitude >= minSpeedToSpin)
         {
+            drillFX.SetActive(true);
             rb.AddRelativeTorque(Vector3.up * rb.velocity.magnitude, ForceMode.VelocityChange);
         }
+        else
+            drillFX.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision other)
