@@ -16,7 +16,7 @@ public class EnemyHammerScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.root.CompareTag("Player")
+        if (other.transform.CompareTag("Player")
             && (other.impulse / Time.fixedDeltaTime).sqrMagnitude >= Mathf.Pow(force2Destroy, 2f))
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
     }

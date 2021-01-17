@@ -21,7 +21,7 @@ public class PlayerDrillScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.parent.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin)
+        if (other.transform.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin)
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
     }
 }

@@ -666,7 +666,7 @@ GameObject:
   - component: {fileID: 831182511640413836}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0254afda62205464e8715267bc2f30a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeEffect: {fileID: 0}
+  explodeEffect: {fileID: 4977646799359860, guid: 6a07e3c8575ebfc4fba0475df8ea53d7, type: 3}
   wreckage: {fileID: 2338230573486892379, guid: 14d14e8376c2bf045a27f5951bb8cee1, type: 3}
 --- !u!1 &8559646162006497215
 GameObject:
