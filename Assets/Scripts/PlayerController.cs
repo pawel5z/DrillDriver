@@ -33,34 +33,32 @@ public class PlayerController : MonoBehaviour {
             rb.AddRelativeTorque(-Vector3.forward * horizontalInput * rotateTorqueMult, ForceMode.VelocityChange);
             rb.AddRelativeTorque(Vector3.right * verticalInput * rotateTorqueMult, ForceMode.VelocityChange);
         }
-        else
-        {
-            foreach (AxleInfo axleInfo in axleInfos) {
-                if (axleInfo.steering) {
-                    axleInfo.leftWheel.steerAngle = horizontalInput * maxSteeringAngle;
-                    axleInfo.rightWheel.steerAngle = horizontalInput * maxSteeringAngle;
-                }
-                if (axleInfo.motor) {
-                    float lRpm = axleInfo.leftWheel.rpm;
-                    if (lRpm * verticalInput != 0 && Math.Sign(lRpm) != Math.Sign(verticalInput))
-                        axleInfo.leftWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
-                    else
-                    {
-                        axleInfo.leftWheel.brakeTorque = 0;
-                        axleInfo.leftWheel.motorTorque = verticalInput * maxMotorTorque;
-                    }
-                    float rRpm = axleInfo.rightWheel.rpm;
-                    if (rRpm * verticalInput != 0 && Math.Sign(rRpm) != Math.Sign(verticalInput))
-                        axleInfo.rightWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
-                    else
-                    {
-                        axleInfo.rightWheel.brakeTorque = 0;
-                        axleInfo.rightWheel.motorTorque = verticalInput * maxMotorTorque;
-                    }
-                }
-                WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-                WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+
+        foreach (AxleInfo axleInfo in axleInfos) {
+            if (axleInfo.steering) {
+                axleInfo.leftWheel.steerAngle = horizontalInput * maxSteeringAngle;
+                axleInfo.rightWheel.steerAngle = horizontalInput * maxSteeringAngle;
             }
+            if (axleInfo.motor) {
+                float lRpm = axleInfo.leftWheel.rpm;
+                if (lRpm * verticalInput != 0 && Math.Sign(lRpm) != Math.Sign(verticalInput))
+                    axleInfo.leftWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                else
+                {
+                    axleInfo.leftWheel.brakeTorque = 0;
+                    axleInfo.leftWheel.motorTorque = verticalInput * maxMotorTorque;
+                }
+                float rRpm = axleInfo.rightWheel.rpm;
+                if (rRpm * verticalInput != 0 && Math.Sign(rRpm) != Math.Sign(verticalInput))
+                    axleInfo.rightWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                else
+                {
+                    axleInfo.rightWheel.brakeTorque = 0;
+                    axleInfo.rightWheel.motorTorque = verticalInput * maxMotorTorque;
+                }
+            }
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
 
