@@ -18,6 +18,9 @@ public class EnemyHammerScript : MonoBehaviour
     {
         if (other.transform.CompareTag("Player")
             && (other.impulse / Time.fixedDeltaTime).sqrMagnitude >= Mathf.Pow(force2Destroy, 2f))
+        {
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
+            GameController.instance.GameOver();
+        }
     }
 }
