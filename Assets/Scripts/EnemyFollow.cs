@@ -12,7 +12,9 @@ public class EnemyFollow : MonoBehaviour {
     public float steeringSens = 45f;
     public float steeringAngleMargin = 5f;
 
-
+    private void Start() {
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
 
     private void FixedUpdate()
     {
