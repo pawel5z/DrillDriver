@@ -12,10 +12,10 @@ public class PlayerController : MonoBehaviour {
     public float jumpForceMult;
     public float rotateTorqueMult;
 
-
     private float verticalInput;
     private float horizontalInput;
     private bool jump;
+
     private void Update()
     {
         verticalInput = Input.GetAxis("Vertical");

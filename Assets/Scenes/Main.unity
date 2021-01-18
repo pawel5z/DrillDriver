@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 111131272}
   - component: {fileID: 111131271}
   - component: {fileID: 111131273}
+  - component: {fileID: 111131274}
   m_Layer: 0
   m_Name: CM vcam frontview
   m_TagString: Untagged
@@ -395,6 +396,21 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &111131274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111131270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
 --- !u!1 &370513800
 GameObject:
   m_ObjectHideFlags: 0
@@ -19802,6 +19818,7 @@ GameObject:
   - component: {fileID: 1451037627}
   - component: {fileID: 1451037626}
   - component: {fileID: 1451037628}
+  - component: {fileID: 1451037629}
   m_Layer: 0
   m_Name: CM vcam rearview
   m_TagString: Untagged
@@ -19889,6 +19906,21 @@ MonoBehaviour:
   m_Damping: 0
   m_DampingWhenOccluded: 0
   m_OptimalTargetDistance: 0
+--- !u!114 &1451037629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451037625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 0
 --- !u!1 &1458853932
 GameObject:
   m_ObjectHideFlags: 0
