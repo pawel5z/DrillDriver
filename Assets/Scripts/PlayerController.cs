@@ -10,15 +10,16 @@ public class PlayerController : MonoBehaviour {
     public float maxSteeringAngle;
     public Rigidbody rb;
     public float jumpForceMult;
+    public float rotateTorqueMult;
 
 
     private float verticalInput;
-    private float steering;
+    private float horizontalInput;
     private bool jump;
     private void Update()
     {
         verticalInput = Input.GetAxis("Vertical");
-        steering = maxSteeringAngle * Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
         jump = Input.GetButton("Jump");
     }
 
@@ -27,31 +28,39 @@ public class PlayerController : MonoBehaviour {
         if (jump && IsHalfGrounded())
             rb.AddRelativeForce(transform.up * jumpForceMult, ForceMode.VelocityChange);
 
-        foreach (AxleInfo axleInfo in axleInfos) {
-            if (axleInfo.steering) {
-                axleInfo.leftWheel.steerAngle = steering;
-                axleInfo.rightWheel.steerAngle = steering;
-            }
-            if (axleInfo.motor) {
-                float lRpm = axleInfo.leftWheel.rpm;
-                if (lRpm * verticalInput != 0 && Math.Sign(lRpm) != Math.Sign(verticalInput))
-                    axleInfo.leftWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
-                else
-                {
-                    axleInfo.leftWheel.brakeTorque = 0;
-                    axleInfo.leftWheel.motorTorque = verticalInput * maxMotorTorque;
+        if (!isGrounded)
+        {
+            rb.AddRelativeTorque(-Vector3.forward * horizontalInput * rotateTorqueMult, ForceMode.VelocityChange);
+            rb.AddRelativeTorque(Vector3.right * verticalInput * rotateTorqueMult, ForceMode.VelocityChange);
+        }
+        else
+        {
+            foreach (AxleInfo axleInfo in axleInfos) {
+                if (axleInfo.steering) {
+                    axleInfo.leftWheel.steerAngle = horizontalInput * maxSteeringAngle;
+                    axleInfo.rightWheel.steerAngle = horizontalInput * maxSteeringAngle;
                 }
-                float rRpm = axleInfo.rightWheel.rpm;
-                if (rRpm * verticalInput != 0 && Math.Sign(rRpm) != Math.Sign(verticalInput))
-                    axleInfo.rightWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
-                else
-                {
-                    axleInfo.rightWheel.brakeTorque = 0;
-                    axleInfo.rightWheel.motorTorque = verticalInput * maxMotorTorque;
+                if (axleInfo.motor) {
+                    float lRpm = axleInfo.leftWheel.rpm;
+                    if (lRpm * verticalInput != 0 && Math.Sign(lRpm) != Math.Sign(verticalInput))
+                        axleInfo.leftWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                    else
+                    {
+                        axleInfo.leftWheel.brakeTorque = 0;
+                        axleInfo.leftWheel.motorTorque = verticalInput * maxMotorTorque;
+                    }
+                    float rRpm = axleInfo.rightWheel.rpm;
+                    if (rRpm * verticalInput != 0 && Math.Sign(rRpm) != Math.Sign(verticalInput))
+                        axleInfo.rightWheel.brakeTorque = Mathf.Abs(verticalInput) * brakeTorque;
+                    else
+                    {
+                        axleInfo.rightWheel.brakeTorque = 0;
+                        axleInfo.rightWheel.motorTorque = verticalInput * maxMotorTorque;
+                    }
                 }
+                WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+                WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
             }
-            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.leftWheel);
-            WheelUtils.ApplyLocalPositionToVisuals(axleInfo.rightWheel);
         }
     }
 
@@ -66,5 +75,5 @@ public class PlayerController : MonoBehaviour {
         return false;
     }
     
-    private bool isGrounded => axleInfos.TrueForAll(x => x.isGrounded);
+    private bool isGrounded => axleInfos.TrueForAll(a => a.isGrounded);
 }
