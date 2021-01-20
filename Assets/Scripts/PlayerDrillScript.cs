@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerDrillScript : MonoBehaviour
 {
@@ -25,7 +26,17 @@ public class PlayerDrillScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin)
+        if (other.transform.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin) // able to kill enemy
+        {
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
+            StartCoroutine(KillFX());
+        }
+    }
+
+    private IEnumerator KillFX()
+    {
+        Time.timeScale = .5f;
+        yield return new WaitForSecondsRealtime(2f);
+        Time.timeScale = 1f;
     }
 }

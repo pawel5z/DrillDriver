@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
         {
             gameHasEnded = true;
             Debug.Log("Game Over");
+            Time.timeScale = .5f;
             Invoke("Restart", restartDelay);
         }
     }
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gameHasEnded = false;
+        Time.timeScale = 1f;
     }
 
     private void OnEnable()
