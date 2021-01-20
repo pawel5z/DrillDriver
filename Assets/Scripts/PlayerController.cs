@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     public float maxSteeringAngle;
     public Rigidbody rb;
     public float jumpForceMult;
-    public float rotateTorqueMult;
+    public float rotationMult;
 
     private float verticalInput;
     private float horizontalInput;
@@ -32,8 +32,8 @@ public class PlayerController : MonoBehaviour {
 
         if (!isGrounded)
         {
-            rb.AddRelativeTorque(-Vector3.forward * horizontalInput * rotateTorqueMult, ForceMode.VelocityChange);
-            rb.AddRelativeTorque(Vector3.right * verticalInput * rotateTorqueMult, ForceMode.VelocityChange);
+            rb.angularVelocity = -transform.forward * horizontalInput * rotationMult
+                               + transform.right * verticalInput * rotationMult;
         }
 
         foreach (AxleInfo axleInfo in axleInfos) {

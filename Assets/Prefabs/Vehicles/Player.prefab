@@ -770,7 +770,7 @@ MonoBehaviour:
   maxSteeringAngle: 40
   rb: {fileID: 172633295314507874}
   jumpForceMult: 5
-  rotateTorqueMult: 0.05
+  rotationMult: 2
 --- !u!114 &4975782123900540027
 MonoBehaviour:
   m_ObjectHideFlags: 0
