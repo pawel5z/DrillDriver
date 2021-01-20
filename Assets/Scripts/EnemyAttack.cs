@@ -9,18 +9,21 @@ public class EnemyAttack : MonoBehaviour
     public GameObject hitFX;
 
     private void OnTriggerEnter(Collider other) {
-        UseHammer(other);
+        if (other.gameObject.transform.root.CompareTag("Player"))
+            UseHammer();
+        if (other.gameObject.name == "Hammer")
+            Instantiate(hitFX, transform.position, Quaternion.Euler(Vector3.up));
     }
 
     private void OnTriggerExit(Collider other) {
-        UseHammer(other);
+        if (other.gameObject.transform.root.CompareTag("Player"))
+            UseHammer();
+        if (other.gameObject.name == "Hammer")
+            Instantiate(hitFX, transform.position, Quaternion.Euler(Vector3.up));
     }
 
-    private void UseHammer(Collider other)
+    private void UseHammer()
     {
-        if (other.gameObject.transform.root.CompareTag("Player")) {
-            hammer.AddRelativeTorque(Vector3.right * forceMult, ForceMode.VelocityChange);
-            Instantiate(hitFX, transform.position, Quaternion.Euler(Vector3.up));
-        }
+        hammer.AddRelativeTorque(Vector3.right * forceMult, ForceMode.VelocityChange);
     }
 }

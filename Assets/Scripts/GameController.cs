@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
@@ -37,6 +38,7 @@ public class GameController : MonoBehaviour
     {
         gameHasEnded = false;
     }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;    
