@@ -1021,6 +1021,8 @@ MonoBehaviour:
   maxAngVel: 100
   drillFX: {fileID: 9220513072461681166}
   destroyClip: {fileID: 8300000, guid: c019a711ce9ec3b4282ab5d38103d037, type: 3}
+  killCams: []
+  minAngSpeedToKill: 25
 --- !u!1001 &9220513072461714602
 PrefabInstance:
   m_ObjectHideFlags: 0

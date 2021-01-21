@@ -10,6 +10,7 @@ public class PlayerDrillScript : MonoBehaviour
     public GameObject drillFX;
     public AudioClip destroyClip;
     public CinemachineVirtualCamera[] killCams;
+    public float minAngSpeedToKill;
 
     private void Start()
     {
@@ -30,11 +31,13 @@ public class PlayerDrillScript : MonoBehaviour
         }
         else
             drillFX.SetActive(false);
+        Debug.Log(rb.angularVelocity.sqrMagnitude);
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin) // able to kill enemy
+        // able to kill enemy
+        if (other.transform.CompareTag("Enemy") && rb.angularVelocity.sqrMagnitude >= Mathf.Pow(minAngSpeedToKill, 2f))
         {
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
             SoundController.instance.PlayVariation(destroyClip);
