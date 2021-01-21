@@ -6,6 +6,7 @@ public class SoundController : MonoBehaviour
 {
     public static SoundController instance;
     public AudioSource musicSource;
+    public AudioSource soundFXsource;
 
     private void Awake()
     {
@@ -20,4 +21,9 @@ public class SoundController : MonoBehaviour
         musicSource.pitch = Random.Range(.95f, 1.05f);
     }
 
+    public void PlayVariation(AudioClip clip)
+    {
+        soundFXsource.pitch = Random.Range(.95f, 1.05f);
+        soundFXsource.PlayOneShot(clip, 1f);
+    }
 }

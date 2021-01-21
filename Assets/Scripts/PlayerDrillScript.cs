@@ -7,6 +7,7 @@ public class PlayerDrillScript : MonoBehaviour
     public float minSpeedToSpin;
     public float maxAngVel = 100;
     public GameObject drillFX;
+    public AudioClip destroyClip;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerDrillScript : MonoBehaviour
         if (other.transform.CompareTag("Enemy") && rb.velocity.magnitude >= minSpeedToSpin) // able to kill enemy
         {
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
+            SoundController.instance.PlayVariation(destroyClip);
             StartCoroutine(KillFX());
         }
     }

@@ -60,6 +60,7 @@ MonoBehaviour:
   hammer: {fileID: 7537031794361815131}
   forceMult: 10000
   hitFX: {fileID: 100004, guid: e0d26447650c1464c87ec41e1c324529, type: 3}
+  hammerHit: {fileID: 8300000, guid: 8f741e14eaef72d41aa735e14ff87284, type: 3}
 --- !u!1 &1714027162224865992
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +428,7 @@ MonoBehaviour:
   rb: {fileID: 7537031794361815131}
   maxAngVel: 100
   force2Destroy: 11000
+  destroyClip: {fileID: 8300000, guid: c019a711ce9ec3b4282ab5d38103d037, type: 3}
 --- !u!1 &5421437522862107948
 GameObject:
   m_ObjectHideFlags: 0

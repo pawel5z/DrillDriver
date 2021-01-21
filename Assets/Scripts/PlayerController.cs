@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
     public Rigidbody rb;
     public float jumpForceMult;
     public float rotationMult;
+    public AudioClip jumpClip;
 
     private float verticalInput;
     private float horizontalInput;
@@ -27,8 +28,10 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (jump && IsHalfGrounded())
+        if (jump && IsHalfGrounded()) {
             rb.AddRelativeForce(transform.up * jumpForceMult, ForceMode.VelocityChange);
+            SoundController.instance.PlayVariation(jumpClip);
+        }
 
         if (!isGrounded)
         {

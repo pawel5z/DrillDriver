@@ -771,6 +771,7 @@ MonoBehaviour:
   rb: {fileID: 172633295314507874}
   jumpForceMult: 5
   rotationMult: 2
+  jumpClip: {fileID: 8300000, guid: ef496f6afc929bc41ae7faab8590e89a, type: 3}
 --- !u!114 &4975782123900540027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -903,7 +904,7 @@ GameObject:
   - component: {fileID: 2548781942089426827}
   - component: {fileID: 2375517900368355681}
   - component: {fileID: 5544706117572338342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Drill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,6 +1020,7 @@ MonoBehaviour:
   minSpeedToSpin: 20
   maxAngVel: 100
   drillFX: {fileID: 9220513072461681166}
+  destroyClip: {fileID: 8300000, guid: c019a711ce9ec3b4282ab5d38103d037, type: 3}
 --- !u!1001 &9220513072461714602
 PrefabInstance:
   m_ObjectHideFlags: 0
