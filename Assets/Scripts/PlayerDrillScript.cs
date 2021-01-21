@@ -31,7 +31,6 @@ public class PlayerDrillScript : MonoBehaviour
         }
         else
             drillFX.SetActive(false);
-        Debug.Log(rb.angularVelocity.sqrMagnitude);
     }
 
     private void OnCollisionEnter(Collision other)
