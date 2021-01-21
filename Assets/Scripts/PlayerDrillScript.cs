@@ -38,6 +38,7 @@ public class PlayerDrillScript : MonoBehaviour
         {
             other.transform.root.GetComponent<ExplodeAndDestroy>().Execute();
             SoundController.instance.PlayVariation(destroyClip);
+            ScoreController.instance.Inc();
             StartCoroutine(KillFX());
         }
     }
