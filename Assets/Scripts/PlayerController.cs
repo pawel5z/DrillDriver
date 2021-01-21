@@ -28,12 +28,12 @@ public class PlayerController : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (jump && IsHalfGrounded()) {
+        if (jump && IsAtLeastHalfGrounded()) {
             rb.AddRelativeForce(Vector3.up * jumpForceMult, ForceMode.VelocityChange);
             SoundController.instance.PlayVariation(jumpClip);
         }
 
-        if (!isGrounded)
+        if (!IsAtLeastHalfGrounded())
         {
             rb.angularVelocity = -transform.forward * horizontalInput * rotationMult
                                + transform.right * verticalInput * rotationMult;
@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private bool IsHalfGrounded() {
+    private bool IsAtLeastHalfGrounded() {
         WheelCollider[] wheelCols = GetComponentsInChildren<WheelCollider>();
         int groundedCnt = 0;
         foreach (WheelCollider wc in wheelCols)
@@ -77,6 +77,4 @@ public class PlayerController : MonoBehaviour {
             return true;
         return false;
     }
-    
-    private bool isGrounded => axleInfos.TrueForAll(a => a.isGrounded);
 }
