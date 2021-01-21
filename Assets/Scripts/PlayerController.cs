@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate()
     {
         if (jump && IsHalfGrounded()) {
-            rb.AddRelativeForce(transform.up * jumpForceMult, ForceMode.VelocityChange);
+            rb.AddRelativeForce(Vector3.up * jumpForceMult, ForceMode.VelocityChange);
             SoundController.instance.PlayVariation(jumpClip);
         }
 
