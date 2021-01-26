@@ -22,8 +22,6 @@ public class PlayerController : MonoBehaviour {
         verticalInput = Input.GetAxis("Vertical");
         horizontalInput = Input.GetAxis("Horizontal");
         jump = Input.GetButton("Jump");
-        if (transform.position.y <= -10f)
-            GameController.instance.GameOver();
     }
 
     private void FixedUpdate()
